@@ -15,7 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))drf_homeworks
 """
 from django.urls import path
+
 from apps.cars.views import CarListCreateAPIView, CarRetrieveUpdateDestroyAPIView
+
 urlpatterns = [
     path('cars', CarListCreateAPIView.as_view()),
     path('cars/<int:pk>', CarRetrieveUpdateDestroyAPIView.as_view())

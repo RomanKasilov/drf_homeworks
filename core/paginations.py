@@ -15,7 +15,7 @@ class PagePagination(PageNumberPagination):
         return Response({
             'total_items': count,
             'total_pages': total_pages,
-            'prev': bool(self.get_previous_link()),
-            'next': bool(self.get_next_link()),
+            'prev': self.page.previous_page_number() if self.get_previous_link() else None,
+            'next': self.page.next_page_number() if self.get_next_link() else None,
             'results': data
         })

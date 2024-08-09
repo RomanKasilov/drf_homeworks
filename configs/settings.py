@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     # my_apps
+    'apps.auto_parks',
     'apps.cars',
     'core'
 ]

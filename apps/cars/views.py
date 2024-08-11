@@ -9,7 +9,7 @@ from apps.cars.serializers import CarSerializer
 class CarListAPIView(ListAPIView):
     serializer_class = CarSerializer
     # pagination_class = PageNumberPagination
-    queryset = CarModel.objects.all()
+    queryset = CarModel.objects.less_than_year(2024)
     filterset_class = CarFilter
 
     # def get_queryset(self):

@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
     'django_filters',
+    'rest_framework_simplejwt',
     # my_apps
+    'apps.auth',
     'apps.auto_parks',
     'apps.cars',
     'apps.users',

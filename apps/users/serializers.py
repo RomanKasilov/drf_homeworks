@@ -23,15 +23,16 @@ class UserSerializer(serializers.ModelSerializer):
                   'email',
                   'profile',
                   'is_active',
+                  'is_superuser',
                   'is_staff',
                   'password',
                   'last_login',
                   'created_at',
                   'updated_at'
                   )
-        read_only_fields = ('id', 'is_active', 'is_staff', 'last_login', 'created_at', 'updated_at')
+        read_only_fields = ('id', 'is_active', 'is_staff', 'is_superuser', 'last_login', 'created_at', 'updated_at')
         extra_kwargs = {
-            'password': {'write_only': True,}
+            'password': {'write_only': True, }
         }
 
     @atomic

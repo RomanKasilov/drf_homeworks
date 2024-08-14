@@ -1,7 +1,10 @@
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
+from rest_framework import status
+from rest_framework.generics import GenericAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 
 from core.permissions.is_superuser_permission import IsSuperUser
+from core.services.email_service import EmailService
 
 from apps.cars.filter import CarFilter
 # from apps.cars.filter import car_filter
@@ -45,3 +48,10 @@ class CarAddPhotoView(UpdateAPIView):
         car.photo.delete()
         super().perform_update(serializer)
 
+
+class TestEmailView(GenericAPIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, *args, **kwargs):
+        EmailService.send_test_email()
+        return Response('Done', status.HTTP_200_OK)
